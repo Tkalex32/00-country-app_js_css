@@ -1,0 +1,50 @@
+.cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(min-content, 1fr);
+}
+
+.card {
+    background-color: var(--color-item);
+    color: var(--color-text);
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+    font-weight: 300;
+    -webkit-box-shadow: 0.125rem 0.125rem 0.25rem var(--color-input);
+    box-shadow: 0.125rem 0.125rem 0.25rem var(--color-input);
+    position: relative;
+}
+
+.card-header {
+    width: 100%;
+    height: auto;
+}
+
+.card-header img {
+    width: 100%;
+    height: calc(14vw);
+    object-fit: cover;
+}
+
+.card-info {
+    margin: 0.25rem 0.5rem 0.5rem 0.5rem;
+}
+
+.country-name {
+    margin-bottom: 0.625rem;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
+
+.country-text {
+    padding: 0 0.5rem;
+    font-weight: 600;
+}
+
+.country-text span {
+    font-weight: normal;
+}
