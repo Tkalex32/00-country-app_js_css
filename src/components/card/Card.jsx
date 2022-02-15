@@ -8,7 +8,7 @@ const Card = ({ country }) => {
         <img src={country.flags.svg} alt="" />
       </div>
       <div className="card-info">
-        <div className="country-name">{country.name}</div>
+        <div className="country-name">{country.name.common}</div>
         <div className="country-text">
           Population: <span>{country.population.toLocaleString()}</span>
         </div>

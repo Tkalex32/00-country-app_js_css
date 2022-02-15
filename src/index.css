@@ -3,13 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.2s linear
+    /* transition: all 0.2s linear */
 }
 
 body {
     font-family: 'Nunito Sans', sans-serif;
-    --color-item: hsl(0, 0%, 100%);
-    --color-bg: hsl(0, 0%, 98%);
+    --color-item: hsl(0, 0%, 98%);
+    --color-bg: hsl(0, 0%, 94%);
     --color-text: hsl(200, 15%, 8%);
     --color-input: hsl(0, 0%, 52%);
     --image-grayscale: 0;
