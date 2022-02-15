@@ -9,13 +9,20 @@
     background-color: var(--color-item);
     color: var(--color-text);
     width: 100%;
+    height: 100%;
     border-radius: 0.5rem;
     overflow: hidden;
     font-size: 0.875rem;
     font-weight: 300;
-    -webkit-box-shadow: 0.125rem 0.125rem 0.25rem var(--color-input);
-    box-shadow: 0.125rem 0.125rem 0.25rem var(--color-input);
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
     position: relative;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: scale(1.02)
 }
 
 .card-header {

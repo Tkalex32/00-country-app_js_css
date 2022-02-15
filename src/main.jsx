@@ -12,7 +12,7 @@ ReactDOM.render(
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="country" element={<Country />} />
+        <Route path="country/:countryName" element={<Country />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -2,3 +2,54 @@
     max-width: 90%;
     margin: 1rem auto;
 }
+
+.loading-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+.loading-inner {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-text);
+    border-color: var(--color-text) transparent var(--color-text) transparent;
+    margin-top: 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    color: var(--color-text);
+    font-size: 1.875rem;
+    margin-top: 1rem;
+}
+
+.pulsate {
+    opacity: 0.5;
+    animation: pulsate 2s ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

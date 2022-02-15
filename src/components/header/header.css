@@ -5,6 +5,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+}
+
+.switch {
+    background-color: var(--color-bg);
+    border-radius: 20px;
+    padding: 0 6px 0 2px;
 }
 
 .dark-toggle {

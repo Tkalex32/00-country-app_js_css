@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../components/card/Card";
 import Search from "../components/search/Search";
@@ -9,6 +8,7 @@ const Home = () => {
   const [countries, setCountries] = useState([]);
   const [countryList, setCountryList] = useState([]);
   const [page, setPage] = useState(20);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getCountries = async () => {
@@ -16,6 +16,7 @@ const Home = () => {
         const response = await countriesApi.getCountries();
         setCountries(response);
         setCountryList(response.slice(0, page));
+        setIsLoading(false);
       } catch {
         console.log("error");
       }
@@ -45,11 +46,18 @@ const Home = () => {
   return (
     <div className="container">
       <Search />
-      <div className="cards">
-        {countryList.map((country, i) => (
-          <Card key={i} country={country} />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="loading-wrapper">
+          <div className="loading-inner"></div>
+          <div className="loading-text pulsate">LOADING...</div>
+        </div>
+      ) : (
+        <div className="cards">
+          {countryList.map((country, i) => (
+            <Card key={i} country={country} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

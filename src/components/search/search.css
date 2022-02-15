@@ -3,4 +3,47 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
+}
+
+.search-bar input,
+.search-bar select {
+    background-color: var(--color-item);
+    color: var(--color-text);
+    border: none;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+    border-radius: 0.3rem;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+    outline: none;
+}
+
+.search {
+    padding: .5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    margin-left: 0.7rem;
+    position: absolute;
+}
+
+.search-input {
+    width: 20vw;
+    padding: 0.7rem 0.5rem 0.7rem 2rem;
+}
+
+::placeholder {
+    color: var(--color-text);
+    opacity: .5;
+}
+
+.filter-select {
+    padding: 0.7rem 2rem 0.7rem 0.5rem;
+    width: 20vw;
 }

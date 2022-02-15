@@ -32,8 +32,8 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div>App title</div>
-      <div>
+      <div className="title">Countries of the world</div>
+      <div className="switch">
         {mode === "dark" ? (
           <div className="dark-toggle" onClick={() => onSelectMode("light")}>
             🔆 Light mode
