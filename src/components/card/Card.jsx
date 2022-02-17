@@ -1,12 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../../context/appContext";
 import "./card.css";
 
 const Card = ({ country }) => {
+  const { dispatch } = useContext(Context);
+
+  const saveCountry = () => {
+    dispatch({
+      type: "ADD_COUNTRY",
+      payload: country,
+    });
+  };
+
   return (
     <Link
       style={{ textDecoration: "none" }}
-      to={`/country/${country.name.common}`}
+      to={`/country/${country.cca3}`}
+      onClick={() => saveCountry()}
+      //state={{ from: country }}
     >
       <div className="card">
         <div className="card-header">

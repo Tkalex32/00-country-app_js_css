@@ -9,6 +9,10 @@ const countriesApi = {
         const url = 'name/' + country;
         return axiosClient.get(url, params);
     },
+    getBorders: (borders, params) => {
+        const url = "alpha?codes=" + borders;
+        return axiosClient.get(url, params)
+    }
 
 
 }

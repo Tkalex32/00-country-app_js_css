@@ -17,15 +17,15 @@ const Home = () => {
   useEffect(() => {
     const getCountries = async () => {
       try {
-        if (countries.length === 0) {
+        if (countries.length === 0 && Array.isArray(countries)) {
           const response = await countriesApi.getCountries();
           setCountriesLocal(response);
           fillContextCountries(response);
           setCountryList(response.slice(0, page));
           setIsLoading(false);
         } else {
-          await setCountriesLocal(countries[0]);
-          await setCountryList(countries[0].slice(0, page));
+          await setCountriesLocal(countries);
+          await setCountryList(countries.slice(0, page));
           setIsLoading(false);
         }
       } catch {

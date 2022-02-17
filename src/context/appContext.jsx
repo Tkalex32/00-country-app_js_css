@@ -5,7 +5,12 @@ const Reducer = (state, action) => {
     case "ADD_COUNTRIES":
       return {
         ...state,
-        countries: [...state.countries, action.payload],
+        countries: [...action.payload],
+      };
+    case "ADD_COUNTRY":
+      return {
+        ...state,
+        country: { ...action.payload },
       };
     /* case "ADD_FILTERED":
       return {
@@ -19,6 +24,7 @@ const Reducer = (state, action) => {
 
 const initialState = {
   countries: [],
+  country: {},
   filtered: [],
 };
 
@@ -31,6 +37,7 @@ export const ContextProvider = (props) => {
     <Context.Provider
       value={{
         countries: state.countries,
+        country: state.country,
         filtered: state.filtered,
         dispatch,
       }}
