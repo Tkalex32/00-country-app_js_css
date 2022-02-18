@@ -7,7 +7,7 @@ import countriesApi from "../api/countriesApi";
 import "./home.css";
 
 const Home = () => {
-  const { countries, dispatch } = useContext(Context);
+  const { countries, filtered, dispatch } = useContext(Context);
   const [countriesLocal, setCountriesLocal] = useState([]);
   const [countryList, setCountryList] = useState([]);
   const [page, setPage] = useState(20);
@@ -23,18 +23,32 @@ const Home = () => {
           fillContextCountries(response);
           setCountryList(response.slice(0, page));
           setIsLoading(false);
+        } else if (filtered.length !== 0 && Array.isArray(filtered)) {
+          await setCountriesLocal(filtered);
+          setCountryList(filtered.slice(0, page));
+          setIsLoading(false);
         } else {
           await setCountriesLocal(countries);
-          await setCountryList(countries.slice(0, page));
+          setCountryList(countries.slice(0, page));
           setIsLoading(false);
         }
       } catch {
         console.log("error");
+        setIsLoading(false);
         setIsError(true);
       }
     };
     getCountries();
   }, []);
+
+  useEffect(() => {
+    const changeToFiltered = () => {
+      setCountriesLocal(filtered);
+      setPage(20);
+      setCountryList(filtered.slice(0, page));
+    };
+    changeToFiltered();
+  }, [filtered]);
 
   useEffect(() => {
     const handleScrollEvent = async () => {
@@ -51,17 +65,17 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    const newList = countriesLocal.slice(page - 20, page);
-    setCountryList([...countryList, ...newList]);
+    const createNewList = () => {
+      setCountryList(countriesLocal.slice(0, page));
+    };
+    createNewList();
   }, [page]);
 
   const fillContextCountries = (data) => {
-    if ((Array.isArray(countries) && countries.length) === 0) {
-      dispatch({
-        type: "ADD_COUNTRIES",
-        payload: data,
-      });
-    }
+    dispatch({
+      type: "ADD_COUNTRIES",
+      payload: data,
+    });
   };
 
   return (

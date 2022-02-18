@@ -34,7 +34,7 @@ const Card = ({ country }) => {
             Region: <span>{country.region}</span>
           </div>
           <div className="country-text">
-            Capital: <span>{country.capital}</span>
+            Capital: <span>{country.capital?.[0]}</span>
           </div>
         </div>
       </div>

@@ -12,11 +12,16 @@ const Reducer = (state, action) => {
         ...state,
         country: { ...action.payload },
       };
-    /* case "ADD_FILTERED":
+    case "ADD_FILTERED":
       return {
         ...state,
-        filtered: [...state.filtered, action.payload],
-      }; */
+        filtered: [...action.payload],
+      };
+    case "CHANGE_REGION":
+      return {
+        ...state,
+        region: action.payload,
+      };
     default:
       return state;
   }
@@ -26,6 +31,7 @@ const initialState = {
   countries: [],
   country: {},
   filtered: [],
+  region: "init",
 };
 
 export const Context = createContext();
@@ -39,6 +45,7 @@ export const ContextProvider = (props) => {
         countries: state.countries,
         country: state.country,
         filtered: state.filtered,
+        region: state.region,
         dispatch,
       }}
     >

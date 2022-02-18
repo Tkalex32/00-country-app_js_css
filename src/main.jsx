@@ -9,15 +9,15 @@ import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ContextProvider>
+    <ContextProvider>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="country/:countryName" element={<Country />} />
         </Routes>
-      </ContextProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

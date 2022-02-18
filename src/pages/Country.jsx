@@ -74,20 +74,19 @@ const Country = () => {
                   Sub region: <span>{country.subregion}</span>
                 </p>
                 <p className="country-text">
-                  Capital: <span>{country.capital[0]}</span>
+                  Capital: <span>{country.capital?.[0]}</span>
                 </p>
               </div>
               <div className="right">
                 <p className="country-text">
-                  Top Level Domain:{" "}
-                  <span>{country.tld ? country.tld[0] : null}</span>
+                  Top Level Domain: <span>{country.tld?.[0]}</span>
                 </p>
                 <p className="country-text">
                   Currencies:{" "}
                   <span>
                     {Object.values(country.currencies)[0].name} -{" "}
                     {Object.values(country.currencies)[0].symbol}
-                  </span>{" "}
+                  </span>
                 </p>
                 <p className="country-text">
                   Languages:{" "}
