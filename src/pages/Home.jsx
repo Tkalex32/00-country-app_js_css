@@ -79,23 +79,27 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <Search />
-      {isLoading ? (
-        <div className="loading-wrapper">
-          <div className="loading-inner"></div>
-          <div className="loading-text pulsate">LOADING...</div>
-        </div>
-      ) : isError ? (
-        <div className="error">Something went wrong!</div>
-      ) : (
-        <div className="cards">
-          {countryList.map((country, i) => (
-            <Card key={i} country={country} />
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <div className="search-container">
+        <Search />
+      </div>
+      <div className="container">
+        {isLoading ? (
+          <div className="loading-wrapper">
+            <div className="loading-inner"></div>
+            <div className="loading-text pulsate">LOADING...</div>
+          </div>
+        ) : isError ? (
+          <div className="error">Something went wrong!</div>
+        ) : (
+          <div className="cards">
+            {countryList.map((country, i) => (
+              <Card key={i} country={country} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

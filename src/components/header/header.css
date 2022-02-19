@@ -4,17 +4,52 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 2rem 1rem;
     box-shadow: var(--shadow);
     -webkit-box-shadow: var(--shadow);
+    transition: all 0.3s linear;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .switch {
     background-color: var(--color-bg);
     border-radius: 20px;
     padding: 0 6px 0 2px;
+    transition: all 0.3s linear;
 }
 
 .dark-toggle {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-toggle span {
+    display: none;
+}
+
+@media (min-width: 375px) {
+    .dark-toggle span {
+        display: block;
+        margin-left: 0.4rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .header {
+        padding: 2rem 4rem;
+    }
+    .title {
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+    .dark-toggle span {
+        display: block;
+        margin-left: 0.4rem;
+    }
 }

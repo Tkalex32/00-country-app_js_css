@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.6s linear;
-}
-
+@import url("reset.css");
 body {
     --color-item: hsl(0, 0%, 98%);
     --color-bg: hsl(0, 0%, 94%);
@@ -16,7 +10,8 @@ body {
     --shadow: 0.125rem 0.125rem 0.25rem var(--color-input);
     font-family: 'Nunito Sans', sans-serif;
     background-color: var(--color-bg);
-    color: var(--color-text)
+    color: var(--color-text);
+    transition: all 0.3s linear;
 }
 
 body.dark {
@@ -33,4 +28,5 @@ body.dark {
 
 img {
     filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
+    transition: all 0.3s linear;
 }

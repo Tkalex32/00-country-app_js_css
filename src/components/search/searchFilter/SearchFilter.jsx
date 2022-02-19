@@ -30,7 +30,7 @@ const SearchFilter = () => {
         value={region}
       >
         <option value="init" hidden>
-          Region
+          Filter by Region
         </option>
         <option value="all">All</option>
         <option value="Africa">Africa</option>

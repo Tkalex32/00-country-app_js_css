@@ -1,6 +1,11 @@
+.search-container {
+    max-width: 100%;
+    margin: 2rem 1rem;
+}
+
 .container {
-    max-width: 90%;
-    margin: 1rem auto;
+    max-width: 100%;
+    margin: 2rem;
 }
 
 .loading-wrapper {
@@ -19,6 +24,7 @@
     border-color: var(--color-text) transparent var(--color-text) transparent;
     margin-top: 1rem;
     animation: spin 1s linear infinite;
+    transition: all 0.3s linear;
 }
 
 @keyframes spin {
@@ -34,6 +40,7 @@
     color: var(--color-text);
     font-size: 1.875rem;
     margin-top: 1rem;
+    transition: all 0.3s linear;
 }
 
 .pulsate {
@@ -59,4 +66,22 @@
     font-size: 1.875rem;
     margin: 2rem auto;
     width: max-content;
+}
+
+@media (min-width: 375px) {
+    .container {
+        margin: 2rem 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-container {
+        margin: 2rem 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        margin: 3rem 4rem;
+    }
 }

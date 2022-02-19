@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import "./header.css";
 
 const Header = () => {
@@ -36,11 +37,13 @@ const Header = () => {
       <div className="switch">
         {mode === "dark" ? (
           <div className="dark-toggle" onClick={() => onSelectMode("light")}>
-            🔆 Light mode
+            <MdLightMode />
+            <span> Light mode</span>
           </div>
         ) : (
           <div className="dark-toggle" onClick={() => onSelectMode("dark")}>
-            🌙 Dark mode
+            <MdDarkMode />
+            <span> Dark mode</span>
           </div>
         )}
       </div>

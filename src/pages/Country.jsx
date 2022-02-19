@@ -40,12 +40,14 @@ const Country = () => {
 
   return (
     <>
-      <Link to={"/"} style={{ textDecoration: "none" }}>
-        <div className="back-button">
-          <FiArrowLeft />
-          <span>Back</span>
-        </div>
-      </Link>
+      <div className="back-container">
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <div className="back-button">
+            <FiArrowLeft />
+            <span>Back</span>
+          </div>
+        </Link>
+      </div>
       <div className="country-container">
         <div className="flag">
           <img src={country.flags.svg} alt="" />
@@ -53,7 +55,6 @@ const Country = () => {
         <div className="info">
           <div className="info-data">
             <div className="title">
-              {" "}
               <p className="c-name">{country.name.common}</p>
             </div>
             <div className="center">
@@ -92,7 +93,9 @@ const Country = () => {
                   Languages:{" "}
                   <span>
                     {Object.keys(country.languages).map((lang, i) => (
-                      <span key={i}>{country.languages[lang]} </span>
+                      <span key={i} className="lang-name">
+                        {country.languages[lang]}
+                      </span>
                     ))}
                   </span>
                 </p>
@@ -101,7 +104,7 @@ const Country = () => {
           </div>
           <div className="bottom">
             <div className="country-text border">Border Countries: </div>
-            <div>
+            <div className="borders">
               {country.borders &&
                 borderCountries.map((c, i) => (
                   <Link

@@ -8,7 +8,7 @@ const searchInput = () => {
       <input
         className="search-input"
         type="search-text"
-        placeholder="Search for a country"
+        placeholder="Search for a country..."
       />
     </div>
   );
