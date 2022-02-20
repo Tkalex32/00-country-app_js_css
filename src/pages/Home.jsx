@@ -7,7 +7,7 @@ import countriesApi from "../api/countriesApi";
 import "./home.css";
 
 const Home = () => {
-  const { countries, filtered, dispatch } = useContext(Context);
+  const { countries, filtered, searchFiltered, dispatch } = useContext(Context);
   const [countriesLocal, setCountriesLocal] = useState([]);
   const [countryList, setCountryList] = useState([]);
   const [page, setPage] = useState(20);
@@ -24,8 +24,9 @@ const Home = () => {
           setCountryList(response.slice(0, page));
           setIsLoading(false);
         } else if (filtered.length !== 0 && Array.isArray(filtered)) {
-          await setCountriesLocal(filtered);
-          setCountryList(filtered.slice(0, page));
+          await setCountriesLocal(searchFiltered);
+          setCountryList(searchFiltered.slice(0, page));
+          fillContextSearchFiltered(filtered);
           setIsLoading(false);
         } else {
           await setCountriesLocal(countries);
@@ -49,6 +50,15 @@ const Home = () => {
     };
     changeToFiltered();
   }, [filtered]);
+
+  useEffect(() => {
+    const changeToFiltered = () => {
+      setCountriesLocal(searchFiltered);
+      setPage(20);
+      setCountryList(searchFiltered.slice(0, page));
+    };
+    changeToFiltered();
+  }, [searchFiltered]);
 
   useEffect(() => {
     const handleScrollEvent = async () => {
@@ -78,6 +88,17 @@ const Home = () => {
     });
     dispatch({
       type: "ADD_FILTERED",
+      payload: data,
+    });
+    dispatch({
+      type: "ADD_SEARCHFILTERED",
+      payload: data,
+    });
+  };
+
+  const fillContextSearchFiltered = (data) => {
+    dispatch({
+      type: "ADD_SEARCHFILTERED",
       payload: data,
     });
   };

@@ -16,6 +16,10 @@ const SearchFilter = () => {
       payload: filtered,
     });
     dispatch({
+      type: "ADD_SEARCHFILTERED",
+      payload: filtered,
+    });
+    dispatch({
       type: "CHANGE_REGION",
       payload: e.target.value,
     });
