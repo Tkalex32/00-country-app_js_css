@@ -76,6 +76,10 @@ const Home = () => {
       type: "ADD_COUNTRIES",
       payload: data,
     });
+    dispatch({
+      type: "ADD_FILTERED",
+      payload: data,
+    });
   };
 
   return (
