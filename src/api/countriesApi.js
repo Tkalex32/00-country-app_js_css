@@ -2,7 +2,7 @@ import axiosClient from "./axiosClient";
 
 const countriesApi = {
     getCountries: () => {
-        const url = 'all';
+        const url = 'all?fields=name,population,region,capital,flags,subregion,tld,currencies,languages,borders,cca3';
         return axiosClient.get(url);
     },
     detail: (country, params) => {
@@ -13,8 +13,6 @@ const countriesApi = {
         const url = "alpha?codes=" + borders;
         return axiosClient.get(url, params)
     }
-
-
 }
 
 export default countriesApi;
